@@ -19,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         //Step 1: Obtain the SharedPreferences instance
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+
         //Step 2: Create a SharedPreferences Editor by calling edit()
         SharedPreferences.Editor prefEdit = prefs.edit();
+
         //Step 3: Set a key-value pair in the Editor
         prefEdit.putString("greetings", "Hello!");
+
         //Step 4: Call commit() to save the changes made to the SharedPreferences
         prefEdit.commit();
     }
@@ -32,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         //Step 1: Obtain the SharedPreferences instance
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+
         //Step 2: Retrieve the saved data from the SharedPreferences with a default value if no matching data
         String msg = prefs.getString("greetings", "No greetings name");
+
         Toast toast = Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG);
         toast.show();
     }
